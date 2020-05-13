@@ -4,14 +4,14 @@ import { register } from "../../redux/actions/authActions";
 import { clearErrors } from "../../redux/actions/errorActions";
 
 const RegisterModal = ({ register }) => {
-  const InitialState = {
+  const initialState = {
     name: "",
     email: "",
     password: "",
   };
   const [modal, setModal] = useState(false);
   const [msg, setMsg] = useState(null);
-  const [newUser, setNewUser] = useState(InitialState);
+  const [newUser, setNewUser] = useState(initialState);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -25,7 +25,7 @@ const RegisterModal = ({ register }) => {
 
       console.log("New User Registered");
       register(newUser);
-      setNewUser(InitialState);
+      setNewUser(initialState);
     }
   };
 
@@ -74,7 +74,7 @@ const RegisterModal = ({ register }) => {
 };
 
 const mapStateToProps = (state) => ({
-  isAuthenticated: state.auth.isAuthenticated,
+  // isAuthenticated: state.auth.isAuthenticated,
   error: state.error,
 });
 

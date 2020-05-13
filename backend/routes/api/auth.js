@@ -2,11 +2,11 @@ const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
-let User = require("../models/user.model");
-const auth = require("../middleware/auth");
+let User = require("../../models/user.model");
+const auth = require("../../middleware/auth");
 const jwtSecret = process.env.JWT_SECRET;
 
-//POST /auth/register
+//POST /api/auth/register
 //Register new user
 //private access
 router.route("/register").post(async (req, res) => {
@@ -55,7 +55,7 @@ router.route("/register").post(async (req, res) => {
   }
 });
 
-//POST /auth/login
+//POST /api/auth/login
 //Log-in user
 //Public access
 router.route("/login").post(async (req, res) => {
@@ -92,7 +92,7 @@ router.route("/login").post(async (req, res) => {
   }
 });
 
-//GET /auth/user
+//GET /api/auth/user
 //Get user data
 //Private access
 router.route("/user").get(auth, async (req, res) => {

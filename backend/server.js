@@ -2,8 +2,9 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 require("dotenv").config();
-const authRouter = require("./routes/auth");
-const usersRouter = require("./routes/users");
+const authRouter = require("./routes/api/auth");
+const studiosRouter = require("./routes/api/studios");
+const usersRouter = require("./routes/api/users");
 
 // creates express server
 const app = express();
@@ -27,8 +28,9 @@ connection.once("open", () => {
 });
 
 //use routes
-app.use("/auth", authRouter);
-app.use("/users", usersRouter);
+app.use("/api/auth", authRouter);
+app.use("/api/studios", studiosRouter);
+app.use("/api/users", usersRouter);
 
 //starts the server
 app.listen(port, () => {

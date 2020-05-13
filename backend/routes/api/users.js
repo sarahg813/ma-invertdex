@@ -1,8 +1,8 @@
 const router = require("express").Router();
 require("dotenv").config();
-let User = require("../models/user.model");
+let User = require("../../models/user.model");
 
-//GET /users
+//GET /api/users
 //get all users
 //private access
 router.route("/").get(async (req, res) => {

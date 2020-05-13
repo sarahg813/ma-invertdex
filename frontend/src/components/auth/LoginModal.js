@@ -1,16 +1,16 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { login } from "../../redux/actions/authActions";
 import { clearErrors } from "../../redux/actions/errorActions";
 
 const LoginModal = ({ isAuthenticated, error, login, clearErrors }) => {
-  const InitialState = {
+  const initialState = {
     email: "",
     password: "",
   };
   const [modal, setModal] = useState(false);
   const [msg, setMsg] = useState(null);
-  const [user, setUser] = useState(InitialState);
+  const [user, setUser] = useState(initialState);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -24,7 +24,7 @@ const LoginModal = ({ isAuthenticated, error, login, clearErrors }) => {
 
       console.log("User successfully logged in");
       login(user);
-      setUser(InitialState);
+      setUser(initialState);
     }
   };
 
