@@ -1,6 +1,5 @@
 import {
   GET_STUDIOS,
-  GET_STUDIO_BY_ID,
   ADD_STUDIO,
   DELETE_STUDIO,
   UPDATE_STUDIO,
@@ -9,7 +8,6 @@ import {
 
 const initialState = {
   studios: [],
-  studio: [],
   isLoading: false,
 };
 
@@ -21,12 +19,6 @@ export default function (state = initialState, action) {
         studios: action.payload,
         isLoading: false,
       };
-    case GET_STUDIO_BY_ID:
-      return {
-        ...state,
-        studio: action.payload,
-        isLoading: false,
-      };
     case ADD_STUDIO:
       return {
         ...state,
@@ -36,13 +28,15 @@ export default function (state = initialState, action) {
       return {
         ...state,
         studios: state.studios.map((studio) =>
-          studio.id === action.payload.data._id ? action.payload.data : studio
+          studio._id === action.payload._id ? action.payload : studio
         ),
       };
     case DELETE_STUDIO:
       return {
         ...state,
-        studios: state.studios.filter((studio) => studio.id !== action.payload),
+        studios: state.studios.filter(
+          (studio) => studio._id !== action.payload
+        ),
       };
 
     case STUDIOS_LOADING:

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import { getStudios } from "./redux/actions/studioActions";
+import { getStudios } from "./redux/actions/studiosActions";
 // import { loadUser } from "./redux/actions/authActions";
 import AdminPage from "./components/AdminPage";
 

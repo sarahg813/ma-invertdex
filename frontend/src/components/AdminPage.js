@@ -1,18 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Container, Table, Button } from "reactstrap";
-import { getStudios, deleteStudio } from "../redux/actions/studioActions";
+import { deleteStudio } from "../redux/actions/studiosActions";
 import AddStudioModal from "./AddStudioModal";
+import EditStudioModal from "./EditStudioModal";
 
 const AdminPage = () => {
-  const [allStudios, setAllStudios] = useState([]);
   const dispatch = useDispatch();
-
-  const { studios } = useSelector((state) => state.studios);
-
-  //   useEffect(() => {
-  //     setAllStudios(studios);
-  //   }, [studios]);
+  const { studios, isLoading } = useSelector((state) => state.studios);
 
   const handleDelete = (id) => {
     dispatch(deleteStudio(id));
@@ -32,9 +27,11 @@ const AdminPage = () => {
             <th>Delete</th>
           </tr>
         </thead>
-        <tbody>
-          {studios.length > 0 &&
-            studios.map((studio) => (
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <tbody>
+            {studios.map((studio) => (
               <React.Fragment key={studio._id}>
                 <tr>
                   <th scope="row">{studio.name}</th>
@@ -42,14 +39,7 @@ const AdminPage = () => {
                   <td>{studio.address.city}</td>
                   <td>{studio.address.state[0]}</td>
                   <td>
-                    <Button
-                      value="Edit"
-                      color="warning"
-                      size="sm"
-                      type="button"
-                    >
-                      Edit
-                    </Button>
+                    <EditStudioModal id={studio._id} />
                   </td>
                   <td>
                     <Button
@@ -65,7 +55,8 @@ const AdminPage = () => {
                 </tr>
               </React.Fragment>
             ))}
-        </tbody>
+          </tbody>
+        )}
       </Table>
     </Container>
   );

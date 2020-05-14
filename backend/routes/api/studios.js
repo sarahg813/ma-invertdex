@@ -82,7 +82,7 @@ router.route("/add").post(async (req, res) => {
     const savedStudio = await newStudio.save();
 
     if (!savedStudio) throw Error("Error: can't save studio!");
-    res.status(200).json("Studio added!");
+    res.status(200).json(savedStudio);
   } catch (err) {
     res.status(400).json({ msg: err.message });
   }
@@ -91,10 +91,14 @@ router.route("/add").post(async (req, res) => {
 //GET /api/studios/profile/:id
 //get studio by id
 //public access
-router.route("/profile/:id").get((req, res) => {
-  Studio.findById(req.params.id)
-    .then((studio) => res.json(studio))
-    .catch((err) => res.status(400).json("Error: " + err));
+router.route("/profile/:id").get(async (req, res) => {
+  try {
+    const studio = await Studio.findById(req.params.id);
+    if (!studio) throw Error("No studio found!");
+    res.status(200).json(studio);
+  } catch (err) {
+    res.status(400).json({ msg: err.message });
+  }
 });
 
 //DELETE /api/studios/id
@@ -112,10 +116,13 @@ router.route("/:id").delete(async (req, res) => {
 //UPDATE /api/studios/update/:id
 //update studio info by id
 //private access
-router.route("/update/:id").put(async (req, res) => {
-  await Studio.findByIdAndUpdate(req.params.id, req.body, { new: true })
-    .then(() => res.json("Studio updated!"))
-    .catch((err) => res.status(400).json("Error: " + err));
+router.route("/update/:id").patch(async (req, res) => {
+  try {
+    await Studio.findByIdAndUpdate(req.params.id, req.body);
+    res.status(200).json("Studio updated!");
+  } catch (err) {
+    res.status(400).json({ msg: err.message });
+  }
 });
 
 //-------INSOMNIA---------------

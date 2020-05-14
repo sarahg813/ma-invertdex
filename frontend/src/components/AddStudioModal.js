@@ -10,7 +10,7 @@ import {
   Input,
 } from "reactstrap";
 import { useDispatch } from "react-redux";
-import { addStudio } from "../redux/actions/studioActions";
+import { addStudio } from "../redux/actions/studiosActions";
 
 const AddStudioModal = () => {
   const initialState = {
@@ -52,16 +52,26 @@ const AddStudioModal = () => {
     dispatch(addStudio(newStudio));
 
     setNewStudio(initialState);
+    handleToggle();
   };
 
-  const handleClose = (event) => {
+  const handleClose = () => {
     setNewStudio(initialState);
     handleToggle();
   };
 
   return (
     <div>
-      <Button onClick={handleToggle}>Add Studio</Button>
+      <Button
+        value="Add Studio"
+        outline
+        color="success"
+        size="sm"
+        type="button"
+        onClick={handleToggle}
+      >
+        Add Studio
+      </Button>
 
       <Modal isOpen={modal} toggle={handleToggle}>
         <ModalHeader toggle={handleToggle}>Add a New Studio</ModalHeader>
