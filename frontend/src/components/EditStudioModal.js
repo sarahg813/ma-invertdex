@@ -10,7 +10,7 @@ import {
   Input,
 } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { updateStudio } from "../redux/actions/studiosActions";
+import { updateStudio, getStudios } from "../redux/actions/studiosActions";
 import { getStudioById, setStudioUnload } from "../redux/actions/studioActions";
 
 const EditStudioModal = (props) => {
@@ -44,6 +44,7 @@ const EditStudioModal = (props) => {
 
   const handleClose = () => {
     handleToggle();
+    dispatch(getStudios());
     dispatch(setStudioUnload());
   };
 
@@ -156,34 +157,50 @@ const EditStudioModal = (props) => {
                 </div>
                 <div>
                   <p>Social Media Links:</p>
-                  {/* <Label for="Facebook">Facebook</Label>
+                  <Label for="Facebook">Facebook</Label>
                   <Input
                     type="text"
                     name="facebook"
-                    defaultValue={facebook ? facebook : ""}
+                    defaultValue={
+                      studio.socialMedia.facebook
+                        ? studio.socialMedia.facebook
+                        : ""
+                    }
                     onChange={handleInputChange}
-                  /> */}
-                  {/* <Label for="Instagram">Instagram</Label>
+                  />
+                  <Label for="Instagram">Instagram</Label>
                   <Input
                     type="text"
                     name="instagram"
-                    defaultValue={studio.socialMedia.instagram}
+                    defaultValue={
+                      studio.socialMedia.instagram
+                        ? studio.socialMedia.instagram
+                        : ""
+                    }
                     onChange={handleInputChange}
                   />
                   <Label for="Twitter">Twitter</Label>
                   <Input
                     type="text"
                     name="twitter"
-                    defaultValue={studio.socialMedia.twitter}
+                    defaultValue={
+                      studio.socialMedia.twitter
+                        ? studio.socialMedia.twitter
+                        : ""
+                    }
                     onChange={handleInputChange}
                   />
                   <Label for="Youtube">Youtube</Label>
                   <Input
                     type="text"
                     name="youtube"
-                    defaultValue={studio.socialMedia.youtube}
+                    defaultValue={
+                      studio.socialMedia.youtube
+                        ? studio.socialMedia.youtube
+                        : ""
+                    }
                     onChange={handleInputChange}
-                  /> */}
+                  />
                 </div>
                 <div>
                   <Label for="Categories">Categories</Label>
