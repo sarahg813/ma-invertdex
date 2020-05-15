@@ -55,11 +55,6 @@ const AddStudioModal = () => {
     handleToggle();
   };
 
-  const handleClose = () => {
-    setNewStudio(initialState);
-    handleToggle();
-  };
-
   return (
     <div>
       <Button
@@ -216,15 +211,6 @@ const AddStudioModal = () => {
               </Button>
             </FormGroup>
           </Form>
-          <Button
-            value="close"
-            type="button"
-            outline
-            color="secondary"
-            onClick={handleClose}
-          >
-            Close
-          </Button>
         </ModalBody>
       </Modal>
     </div>

@@ -1,9 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import React, { useState, useEffect, useCallback } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Alert,
+} from "reactstrap";
 import { login } from "../../redux/actions/authActions";
 import { clearErrors } from "../../redux/actions/errorActions";
 
-const LoginModal = ({ isAuthenticated, error, login, clearErrors }) => {
+const LoginModal = () => {
   const initialState = {
     email: "",
     password: "",
@@ -11,6 +22,14 @@ const LoginModal = ({ isAuthenticated, error, login, clearErrors }) => {
   const [modal, setModal] = useState(false);
   const [msg, setMsg] = useState(null);
   const [user, setUser] = useState(initialState);
+  const { isAuthenticated } = useSelector((state) => state.auth);
+  const error = useSelector((state) => state.error);
+  const dispatch = useDispatch();
+
+  const handleToggle = useCallback(() => {
+    dispatch(clearErrors());
+    setModal(!modal);
+  }, [modal, dispatch]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -21,9 +40,8 @@ const LoginModal = ({ isAuthenticated, error, login, clearErrors }) => {
   const handleSubmit = (event) => {
     if (event) {
       event.preventDefault();
-
-      console.log("User successfully logged in");
-      login(user);
+      console.log(error);
+      dispatch(login(user));
       setUser(initialState);
     }
   };
@@ -35,44 +53,62 @@ const LoginModal = ({ isAuthenticated, error, login, clearErrors }) => {
     } else {
       setMsg(null);
     }
-  }, [error, isAuthenticated]);
+    // If authenticated, close modal
+    if (modal) {
+      if (isAuthenticated) {
+        handleToggle();
+      }
+    }
+  }, [error, handleToggle, isAuthenticated, modal]);
 
   return (
     <div>
-      <form className="login-form" onSubmit={handleSubmit}>
-        <div className="input-field">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Email"
-            value={user.email}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="input-field">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Password"
-            value={user.password}
-            onChange={handleInputChange}
-          />
-        </div>
-        <button value="Login" type="submit">
-          Log-in
-        </button>
-      </form>
+      <Button size="sm" onClick={handleToggle}>
+        Login
+      </Button>
+
+      <Modal isOpen={modal} toggle={handleToggle}>
+        <ModalHeader toggle={handleToggle}>Login</ModalHeader>
+        <ModalBody>
+          {msg ? <Alert color="danger">{msg}</Alert> : null}
+          <Form>
+            <FormGroup>
+              <Label for="email">Email</Label>
+              <Input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                className="mb-3"
+                value={user.email}
+                onChange={handleInputChange}
+              />
+              <Label for="password">Password</Label>
+              <Input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                className="mb-3"
+                value={user.password}
+                onChange={handleInputChange}
+              />
+
+              <Button
+                value="Save"
+                type="submit"
+                outline
+                color="primary"
+                onClick={handleSubmit}
+              >
+                Login
+              </Button>
+            </FormGroup>
+          </Form>
+        </ModalBody>
+      </Modal>
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({
-  isAuthenticated: state.auth.isAuthenticated,
-  error: state.error,
-});
-
-export default connect(mapStateToProps, { login, clearErrors })(LoginModal);
+export default LoginModal;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink as RouterLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 import {
   Collapse,
   Navbar,
@@ -9,38 +10,53 @@ import {
   NavItem,
   NavLink,
 } from "reactstrap";
+import Logout from "./auth/Logout";
+import LoginModal from "./auth/LoginModal";
 
 const NavbarComp = () => {
+  const { token } = useSelector((state) => state.auth);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
+  const authLinks = (
+    <>
+      <NavItem>
+        <NavLink tag={RouterLink} to="/admin">
+          Admin
+        </NavLink>
+      </NavItem>
+
+      <Logout />
+    </>
+  );
+
+  const loginLink = (
+    <>
+      <LoginModal />
+    </>
+  );
+
   return (
     <div>
-      <Navbar color="light" light fixed expand="md">
-        <NavbarBrand>
-          <NavLink>
-            <Link to="/">Poledex</Link>
-          </NavLink>
+      <Navbar color="light" light expand="md">
+        <NavbarBrand tag={RouterLink} to="/">
+          Poledex
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink>
-                <Link to="#">All Studios</Link>
+              <NavLink tag={RouterLink} to="#">
+                All Studios
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink>
-                <Link to="#">Studios Map</Link>
+              <NavLink tag={RouterLink} to="#">
+                Studios Map
               </NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink>
-                <Link to="/admin">Admin</Link>
-              </NavLink>
-            </NavItem>
+            {token ? authLinks : loginLink}
           </Nav>
         </Collapse>
       </Navbar>

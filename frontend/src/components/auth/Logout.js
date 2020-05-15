@@ -1,13 +1,18 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
+import { Button } from "reactstrap";
 import { logout } from "../../redux/actions/authActions";
 
-const Logout = ({ logout }) => {
+const Logout = () => {
+  const dispatch = useDispatch();
+
   return (
-    <div>
-      <button onClick={logout}>logout</button>
-    </div>
+    <>
+      <Button size="sm" onClick={() => dispatch(logout())}>
+        Logout
+      </Button>
+    </>
   );
 };
 
-export default connect(null, { logout })(Logout);
+export default Logout;

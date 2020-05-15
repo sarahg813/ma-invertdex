@@ -12,7 +12,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import ReactLoading from "react-loading";
 import { updateStudio, getStudios } from "../redux/actions/studiosActions";
-import { getStudioById, setStudioUnload } from "../redux/actions/studioActions";
+import { getStudioById } from "../redux/actions/studioActions";
 
 const EditStudioModal = (props) => {
   const dispatch = useDispatch();
@@ -40,13 +40,7 @@ const EditStudioModal = (props) => {
     event.preventDefault();
     console.log(editStudio);
     dispatch(updateStudio(studioID, editStudio));
-    handleClose();
-  };
-
-  const handleClose = () => {
-    handleToggle();
     dispatch(getStudios());
-    dispatch(setStudioUnload());
   };
 
   return (
@@ -215,6 +209,7 @@ const EditStudioModal = (props) => {
                   <Input
                     type="text"
                     name="categories"
+                    className="mb-3"
                     defaultValue={studio.categories}
                     onChange={handleInputChange}
                   />
@@ -231,15 +226,6 @@ const EditStudioModal = (props) => {
               </FormGroup>
             </Form>
           )}
-          <Button
-            value="close"
-            type="button"
-            outline
-            color="secondary"
-            onClick={handleClose}
-          >
-            Close
-          </Button>
         </ModalBody>
       </Modal>
     </div>
