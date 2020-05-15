@@ -10,6 +10,7 @@ import {
   Input,
 } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
+import ReactLoading from "react-loading";
 import { updateStudio, getStudios } from "../redux/actions/studiosActions";
 import { getStudioById, setStudioUnload } from "../redux/actions/studioActions";
 
@@ -64,7 +65,14 @@ const EditStudioModal = (props) => {
       <Modal isOpen={modal} toggle={handleToggle}>
         <ModalHeader toggle={handleToggle}>Edit Studio</ModalHeader>
         <ModalBody>
-          {isLoading && <p>Loading...</p>}
+          {isLoading && (
+            <ReactLoading
+              type={"bars"}
+              color={"242424"}
+              height={"30%"}
+              width={"30%"}
+            />
+          )}
           {isLoaded && (
             <Form>
               <FormGroup>

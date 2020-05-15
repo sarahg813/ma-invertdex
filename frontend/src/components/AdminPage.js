@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Container, Table, Button } from "reactstrap";
+import ReactLoading from "react-loading";
 import { deleteStudio } from "../redux/actions/studiosActions";
 import AddStudioModal from "./AddStudioModal";
 import EditStudioModal from "./EditStudioModal";
@@ -28,7 +29,12 @@ const AdminPage = () => {
           </tr>
         </thead>
         {isLoading ? (
-          <p>Loading...</p>
+          <ReactLoading
+            type="bars"
+            color="#242424"
+            height="50px"
+            width="50px"
+          />
         ) : (
           <tbody>
             {studios.map((studio) => (

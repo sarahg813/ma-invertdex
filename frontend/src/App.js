@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import { getStudios } from "./redux/actions/studiosActions";
 // import { loadUser } from "./redux/actions/authActions";
-import AdminPage from "./components/AdminPage";
+import NavbarComp from "./components/NavbarComp";
+import MainContainer from "./components/MainContainer";
 
-function App() {
+export default function App() {
   // useEffect(() => {
   //   store.dispatch(loadUser());
   // }, []);
@@ -15,11 +17,12 @@ function App() {
 
   return (
     <Provider store={store}>
-      <div className="App">
-        <AdminPage />
-      </div>
+      <Router>
+        <div>
+          <NavbarComp />
+          <MainContainer />
+        </div>
+      </Router>
     </Provider>
   );
 }
-
-export default App;
