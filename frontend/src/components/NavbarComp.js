@@ -14,7 +14,7 @@ import Logout from "./auth/Logout";
 import LoginModal from "./auth/LoginModal";
 
 const NavbarComp = () => {
-  const { token } = useSelector((state) => state.auth);
+  const { isAuthenticated } = useSelector((state) => state.auth);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -47,7 +47,7 @@ const NavbarComp = () => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink tag={RouterLink} to="#">
+              <NavLink tag={RouterLink} to="/studioslist">
                 All Studios
               </NavLink>
             </NavItem>
@@ -56,7 +56,7 @@ const NavbarComp = () => {
                 Studios Map
               </NavLink>
             </NavItem>
-            {token ? authLinks : loginLink}
+            {isAuthenticated ? authLinks : loginLink}
           </Nav>
         </Collapse>
       </Navbar>

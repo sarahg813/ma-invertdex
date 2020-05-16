@@ -5,6 +5,8 @@ import { Container } from "reactstrap";
 import "../styles/animation.css";
 import AdminPage from "./AdminPage";
 import HomePage from "./HomePage";
+import StudiosListPage from "./StudiosListPage";
+import StudioPage from "./StudioPage";
 
 const MainContainer = ({ location }) => {
   const currentKey = location.pathname.split("/")[1] || "/";
@@ -16,6 +18,8 @@ const MainContainer = ({ location }) => {
           <section className="route-section">
             <Switch location={location}>
               <Route exact path="/" component={HomePage} />
+              <Route path="/studioslist" component={StudiosListPage} />
+              <Route path="/profile/:id" component={StudioPage} />
               <Route path="/admin" component={AdminPage} />
             </Switch>
           </section>

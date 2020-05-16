@@ -10,7 +10,7 @@ import {
   Input,
 } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
-import ReactLoading from "react-loading";
+import LoadingSpinner from "./tools/LoadingSpinner";
 import { updateStudio, getStudios } from "../redux/actions/studiosActions";
 import { getStudioById } from "../redux/actions/studioActions";
 
@@ -60,12 +60,7 @@ const EditStudioModal = (props) => {
         <ModalHeader toggle={handleToggle}>Edit Studio</ModalHeader>
         <ModalBody>
           {isLoading && (
-            <ReactLoading
-              type={"bars"}
-              color={"242424"}
-              height={"30%"}
-              width={"30%"}
-            />
+            <LoadingSpinner />
           )}
           {isLoaded && (
             <Form>

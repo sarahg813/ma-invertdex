@@ -40,7 +40,7 @@ const LoginModal = () => {
   const handleSubmit = (event) => {
     if (event) {
       event.preventDefault();
-      console.log(error);
+
       dispatch(login(user));
       setUser(initialState);
     }
