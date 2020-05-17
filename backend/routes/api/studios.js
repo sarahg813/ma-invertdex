@@ -18,18 +18,25 @@ router.route("/").get((req, res, next) => {
 //GET /api/studios/search
 //get search results
 //public access
-router.route("/search").get((req, res) => {
+router.route("/search").get(async (req, res) => {
   console.log("param: " + req.query.q);
-  const regex = new RegExp(escapeRegex(req.query.q), "gi");
-  Studio.find({
-    $or: [
-      { "address.city": regex },
-      { "address.state": regex },
-      { "address.postalCode": regex },
-    ],
-  })
-    .then((studio) => res.json(studio))
-    .catch((err) => res.status(400).json("Error: " + err));
+  try {
+    const searchQuery = new RegExp(escapeRegex(req.query.q), "gi");
+
+    const searchResults = await Studio.find({
+      $or: [
+        { "address.city": searchQuery },
+        { "address.state": searchQuery },
+        { "address.postalCode": searchQuery },
+        { name: searchQuery },
+      ],
+    });
+
+    if (!searchResults) throw Error("Error: No results found. ");
+    res.status(200).json(searchResults);
+  } catch (err) {
+    res.status(400).json({ msg: err.message });
+  }
 });
 
 //POST /api/studios/add

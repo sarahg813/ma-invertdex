@@ -1,14 +1,14 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useHistory, withRouter } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { Container, Table } from "reactstrap";
-import { getStudioById } from "../redux/actions/studioActions";
 import LoadingSpinner from "./tools/LoadingSpinner";
+import { getStudioById } from "../redux/actions/studioActions";
 
-const StudiosListPage = () => {
+const SearchResultsPage = () => {
+  let history = useHistory();
   const dispatch = useDispatch();
-  const history = useHistory();
-  const { studios, isLoading } = useSelector((state) => state.studios);
+  const { results, isLoading } = useSelector((state) => state.studios);
 
   const handleOnClick = (id) => {
     history.push("/profile/" + id);
@@ -32,7 +32,7 @@ const StudiosListPage = () => {
               </tr>
             </thead>
             <tbody>
-              {studios.map((studio) => (
+              {results.map((studio) => (
                 <React.Fragment key={studio._id}>
                   <tr
                     onClick={() => {
@@ -54,4 +54,4 @@ const StudiosListPage = () => {
   );
 };
 
-export default StudiosListPage;
+export default withRouter(SearchResultsPage);

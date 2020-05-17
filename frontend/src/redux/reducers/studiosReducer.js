@@ -4,10 +4,12 @@ import {
   DELETE_STUDIO,
   UPDATE_STUDIO,
   STUDIOS_LOADING,
+  SEARCH_STUDIOS,
 } from "../actions/types";
 
 const initialState = {
   studios: [],
+  results: [],
   isLoading: false,
 };
 
@@ -38,7 +40,12 @@ export default function (state = initialState, action) {
           (studio) => studio._id !== action.payload
         ),
       };
-
+    case SEARCH_STUDIOS:
+      return {
+        ...state,
+        results: action.payload,
+        isLoading: false,
+      };
     case STUDIOS_LOADING:
       return {
         ...state,

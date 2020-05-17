@@ -8,6 +8,7 @@ import {
   faPhoneAlt,
   faLink,
   faEnvelope,
+  faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import store from "./redux/store";
 import { getStudios } from "./redux/actions/studiosActions";
@@ -15,7 +16,7 @@ import { loadUser } from "./redux/actions/authActions";
 import NavbarComp from "./components/NavbarComp";
 import MainContainer from "./components/MainContainer";
 
-library.add(fab, faMapMarkerAlt, faPhoneAlt, faLink, faEnvelope);
+library.add(fab, faMapMarkerAlt, faPhoneAlt, faLink, faEnvelope, faSearch);
 
 export default function App() {
   useEffect(() => {

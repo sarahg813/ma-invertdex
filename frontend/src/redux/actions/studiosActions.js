@@ -6,6 +6,7 @@ import {
   DELETE_STUDIO,
   STUDIOS_LOADING,
   UPDATE_STUDIO,
+  SEARCH_STUDIOS,
 } from "./types";
 
 export const getStudios = () => (dispatch) => {
@@ -62,6 +63,24 @@ export const updateStudio = (id, changes) => (dispatch) => {
     .then((res) =>
       dispatch({
         type: UPDATE_STUDIO,
+        payload: res.data,
+      })
+    )
+    .catch((err) =>
+      dispatch(returnErrors(err.response.data, err.response.status))
+    );
+};
+
+export const searchStudios = (searchQuery) => (dispatch) => {
+  dispatch(setStudiosLoading());
+
+  axios
+    .get("/api/studios/search", {
+      params: { q: searchQuery },
+    })
+    .then((res) =>
+      dispatch({
+        type: SEARCH_STUDIOS,
         payload: res.data,
       })
     )
