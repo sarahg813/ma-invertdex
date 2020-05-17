@@ -1,0 +1,25 @@
+{
+  "name": "mern-poledex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "cd frontend && npm start",
+    "server": "cd backend && nodemon server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarahg813/mern-poledex.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sarahg813/mern-poledex/issues"
+  },
+  "homepage": "https://github.com/sarahg813/mern-poledex#readme",
+  "dependencies": {
+    "concurrently": "^5.2.0"
+  }
+}

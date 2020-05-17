@@ -5,7 +5,7 @@ import {
 } from "../actions/types";
 
 const initialState = {
-  studios: [],
+  studio: [],
   isLoaded: false,
   isLoading: false,
 };
@@ -28,6 +28,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         isLoaded: false,
+        studio: [],
       };
 
     default:
