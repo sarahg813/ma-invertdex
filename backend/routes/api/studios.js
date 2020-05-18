@@ -19,7 +19,6 @@ router.route("/").get((req, res, next) => {
 //get search results
 //public access
 router.route("/search").get(async (req, res) => {
-  console.log("param: " + req.query.q);
   try {
     const searchQuery = new RegExp(escapeRegex(req.query.q), "gi");
 

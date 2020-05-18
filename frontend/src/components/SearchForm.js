@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { withRouter, Redirect, useHistory } from "react-router-dom";
+import { withRouter, useHistory } from "react-router-dom";
 import { Button, Form, FormGroup, Input, FormText } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch } from "react-redux";

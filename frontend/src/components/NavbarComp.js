@@ -52,7 +52,7 @@ const NavbarComp = () => {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={RouterLink} to="#">
+              <NavLink tag={RouterLink} to="/studiosmap">
                 Studios Map
               </NavLink>
             </NavItem>

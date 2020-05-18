@@ -41,7 +41,10 @@ const StudioPage = () => {
                 </Col>
                 <Col>
                   <Container>
-                    <StudioMap coordinates={studio.coordinates} />
+                    <StudioMap
+                      coordinates={studio.coordinates}
+                      name={studio.name}
+                    />
                   </Container>
                 </Col>
               </Row>
