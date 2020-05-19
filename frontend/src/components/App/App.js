@@ -10,11 +10,11 @@ import {
   faEnvelope,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
-import store from "./redux/store";
-import { getStudios } from "./redux/actions/studiosActions";
-import { loadUser } from "./redux/actions/authActions";
-import NavbarComp from "./components/NavbarComp";
-import MainContainer from "./components/MainContainer";
+import store from "../../redux/store";
+import { getStudios } from "../../redux/actions/studiosActions";
+import { loadUser } from "../../redux/actions/authActions";
+import NavBar from "../NavBar";
+import MainContainer from "./MainContainer";
 
 library.add(fab, faMapMarkerAlt, faPhoneAlt, faLink, faEnvelope, faSearch);
 
@@ -28,7 +28,7 @@ export default function App() {
     <Provider store={store}>
       <Router>
         <div>
-          <NavbarComp />
+          <NavBar />
           <MainContainer />
         </div>
       </Router>

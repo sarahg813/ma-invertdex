@@ -2,13 +2,13 @@ import React from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Container } from "reactstrap";
-import "../styles/animation.css";
-import AdminPage from "./AdminPage";
-import HomePage from "./HomePage";
-import StudiosListPage from "./StudiosListPage";
-import StudioPage from "./StudioPage";
-import SearchResultsPage from "./SearchResultsPage";
-import StudiosMapPage from "./StudiosMapPage";
+import "./styles/animation.css";
+import AdminPage from "../AdminPage";
+import HomePage from "../HomePage";
+import StudiosListPage from "../StudiosListPage";
+import StudioPage from "../StudioPage";
+import SearchResultsPage from "../SearchResultsPage";
+import StudiosMapPage from "../StudiosMapPage";
 
 const MainContainer = ({ location }) => {
   const currentKey = location.pathname.split("/")[1] || "/";

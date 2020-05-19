@@ -5,6 +5,7 @@ import {
   UPDATE_STUDIO,
   STUDIOS_LOADING,
   SEARCH_STUDIOS,
+  CLEAR_RESULTS,
 } from "../actions/types";
 
 const initialState = {
@@ -50,6 +51,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         isLoading: true,
+      };
+    case CLEAR_RESULTS:
+      return {
+        ...state,
+        results: [],
       };
     default:
       return state;

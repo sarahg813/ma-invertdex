@@ -3,11 +3,12 @@ import { useParams, withRouter } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Container, Row, Col } from "reactstrap";
 import styled from "styled-components";
-import store from "../redux/store";
-import LoadingSpinner from "./tools/LoadingSpinner";
+import store from "../../redux/store";
+import LoadingSpinner from "../tools/LoadingSpinner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { getStudioById } from "../redux/actions/studioActions";
+import { getStudioById } from "../../redux/actions/studioActions";
 import StudioMap from "./StudioMap";
+import { TitleComponent } from "../tools/TitleComponent";
 
 const SocialIcons = styled.a`
   margin-right: 0.5rem;
@@ -23,36 +24,39 @@ const StudioPage = () => {
   }, [id]);
 
   return (
-    <Container>
-      {isLoading ? (
-        <LoadingSpinner />
-      ) : (
-        <>
-          {isLoaded && (
-            <Container>
-              <Row>
-                <Col>
-                  <h4>{studio.name}</h4>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <StudioInfo studio={studio} />
-                </Col>
-                <Col>
-                  <Container>
-                    <StudioMap
-                      coordinates={studio.coordinates}
-                      name={studio.name}
-                    />
-                  </Container>
-                </Col>
-              </Row>
-            </Container>
-          )}
-        </>
-      )}
-    </Container>
+    <>
+      <TitleComponent title={`${studio.name} | Poledex`} />
+      <Container>
+        {isLoading ? (
+          <LoadingSpinner />
+        ) : (
+          <>
+            {isLoaded && (
+              <Container>
+                <Row>
+                  <Col>
+                    <h4>{studio.name}</h4>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <StudioInfo studio={studio} />
+                  </Col>
+                  <Col>
+                    <Container>
+                      <StudioMap
+                        coordinates={studio.coordinates}
+                        name={studio.name}
+                      />
+                    </Container>
+                  </Col>
+                </Row>
+              </Container>
+            )}
+          </>
+        )}
+      </Container>
+    </>
   );
 };
 

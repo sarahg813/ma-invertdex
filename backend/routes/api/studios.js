@@ -9,30 +9,14 @@ const escapeRegex = (text) => {
 //GET /api/studios
 //get all studios
 //public access
-router.route("/").get((req, res, next) => {
-  Studio.find()
-    .then((studios) => res.json(studios))
-    .catch((err) => res.status(400).json("Error: " + err));
-});
-
-//GET /api/studios/search
-//get search results
-//public access
-router.route("/search").get(async (req, res) => {
+router.route("/").get(async (req, res, next) => {
   try {
-    const searchQuery = new RegExp(escapeRegex(req.query.q), "gi");
+    let sortName = { name: 1 };
+    const studios = await Studio.find().sort(sortName);
 
-    const searchResults = await Studio.find({
-      $or: [
-        { "address.city": searchQuery },
-        { "address.state": searchQuery },
-        { "address.postalCode": searchQuery },
-        { name: searchQuery },
-      ],
-    });
+    if (!studios) throw Error("Error: Can't get studios ");
 
-    if (!searchResults) throw Error("Error: No results found. ");
-    res.status(200).json(searchResults);
+    res.status(200).json(studios);
   } catch (err) {
     res.status(400).json({ msg: err.message });
   }
@@ -126,6 +110,47 @@ router.route("/update/:id").patch(async (req, res) => {
   try {
     await Studio.findByIdAndUpdate(req.params.id, req.body);
     res.status(200).json("Studio updated!");
+  } catch (err) {
+    res.status(400).json({ msg: err.message });
+  }
+});
+
+//GET /api/studios/search
+//get search results
+//public access
+router.route("/search").get(async (req, res) => {
+  try {
+    const searchQuery = new RegExp(escapeRegex(req.query.q), "gi");
+
+    const searchResults = await Studio.find({
+      $or: [
+        { "address.city": searchQuery },
+        { "address.state": searchQuery },
+        { "address.postalCode": searchQuery },
+        { name: searchQuery },
+      ],
+    });
+
+    if (!searchResults) throw Error("Error: Can't get search results.");
+    res.status(200).json(searchResults);
+  } catch (err) {
+    res.status(400).json({ msg: err.message });
+  }
+});
+
+//GET /api/studios/filter
+//get search results
+//public access
+router.route("/filter").get(async (req, res) => {
+  try {
+    const filterQuery = new RegExp(escapeRegex(req.query.q), "gi");
+
+    const filterResults = await Studio.find({
+      $or: [{ "address.state": filterQuery }],
+    });
+
+    if (!filterResults) throw Error("Error: Can't get filter results.");
+    res.status(200).json(filterResults);
   } catch (err) {
     res.status(400).json({ msg: err.message });
   }

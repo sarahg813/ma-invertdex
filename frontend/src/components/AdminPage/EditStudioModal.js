@@ -12,9 +12,12 @@ import {
   Row,
 } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
-import LoadingSpinner from "./tools/LoadingSpinner";
-import { updateStudio, getStudios } from "../redux/actions/studiosActions";
-import { getStudioById, setStudioUnload } from "../redux/actions/studioActions";
+import LoadingSpinner from "../tools/LoadingSpinner";
+import { updateStudio, getStudios } from "../../redux/actions/studiosActions";
+import {
+  getStudioById,
+  setStudioUnload,
+} from "../../redux/actions/studioActions";
 
 const EditStudioModal = (props) => {
   const dispatch = useDispatch();

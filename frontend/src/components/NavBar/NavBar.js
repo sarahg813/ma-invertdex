@@ -10,10 +10,10 @@ import {
   NavItem,
   NavLink,
 } from "reactstrap";
-import Logout from "./auth/Logout";
-import LoginModal from "./auth/LoginModal";
+import Logout from "../Auth/Logout";
+import LoginModal from "../Auth/LoginModal";
 
-const NavbarComp = () => {
+const NavBar = () => {
   const { isAuthenticated } = useSelector((state) => state.auth);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -45,7 +45,7 @@ const NavbarComp = () => {
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
+          <Nav className="ml-auto" navbar>
             <NavItem>
               <NavLink tag={RouterLink} to="/studioslist">
                 All Studios
@@ -64,4 +64,4 @@ const NavbarComp = () => {
   );
 };
 
-export default NavbarComp;
+export default NavBar;

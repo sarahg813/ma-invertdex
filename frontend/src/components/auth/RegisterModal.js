@@ -1,5 +1,5 @@
-import React, { useState, useCallback, useEffect } from "react";
-import { connect } from "react-redux";
+import React, { useState, useCallback, useEffect } from "./node_modules/react";
+import { connect } from "./node_modules/react-redux";
 import { register } from "../../redux/actions/authActions";
 import { clearErrors } from "../../redux/actions/errorActions";
 

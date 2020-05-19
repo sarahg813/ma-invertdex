@@ -63,8 +63,8 @@ const LoginModal = () => {
 
   return (
     <div>
-      <Button size="sm" onClick={handleToggle}>
-        Login
+      <Button outline size="sm" onClick={handleToggle}>
+        Admin Login
       </Button>
 
       <Modal isOpen={modal} toggle={handleToggle}>

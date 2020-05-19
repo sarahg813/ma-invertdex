@@ -12,7 +12,7 @@ import {
   Row,
 } from "reactstrap";
 import { useDispatch } from "react-redux";
-import { addStudio } from "../redux/actions/studiosActions";
+import { addStudio } from "../../redux/actions/studiosActions";
 
 const AddStudioModal = () => {
   const initialState = {

@@ -7,6 +7,7 @@ import {
   STUDIOS_LOADING,
   UPDATE_STUDIO,
   SEARCH_STUDIOS,
+  CLEAR_RESULTS,
 } from "./types";
 
 export const getStudios = () => (dispatch) => {
@@ -87,6 +88,30 @@ export const searchStudios = (searchQuery) => (dispatch) => {
     .catch((err) =>
       dispatch(returnErrors(err.response.data, err.response.status))
     );
+};
+
+export const filterStudios = (filterQuery) => (dispatch) => {
+  dispatch(setStudiosLoading());
+
+  axios
+    .get("/api/studios/filter", {
+      params: { q: filterQuery },
+    })
+    .then((res) =>
+      dispatch({
+        type: SEARCH_STUDIOS,
+        payload: res.data,
+      })
+    )
+    .catch((err) =>
+      dispatch(returnErrors(err.response.data, err.response.status))
+    );
+};
+
+export const setClearResults = () => {
+  return {
+    type: CLEAR_RESULTS,
+  };
 };
 
 export const setStudiosLoading = () => {

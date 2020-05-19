@@ -9,7 +9,7 @@ const Logout = () => {
   return (
     <>
       <Button size="sm" onClick={() => dispatch(logout())}>
-        Logout
+        Admin Logout
       </Button>
     </>
   );
