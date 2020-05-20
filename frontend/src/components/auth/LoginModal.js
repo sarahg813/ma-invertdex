@@ -62,7 +62,7 @@ const LoginModal = () => {
   }, [error, handleToggle, isAuthenticated, modal]);
 
   return (
-    <div>
+    <>
       <Button outline size="sm" onClick={handleToggle}>
         Admin Login
       </Button>
@@ -107,7 +107,7 @@ const LoginModal = () => {
           </Form>
         </ModalBody>
       </Modal>
-    </div>
+    </>
   );
 };
 

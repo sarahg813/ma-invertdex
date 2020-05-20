@@ -1,0 +1,15 @@
+@import "../../styles/variables.scss";
+
+.navbar {
+  background-color: #fff3df;
+}
+
+.navbar-brand {
+  font-size: 2rem !important;
+  font-family: $font-stack-tertiary;
+}
+
+.nav-link {
+  font-family: $font-stack-primary;
+  color: $black !important;
+}

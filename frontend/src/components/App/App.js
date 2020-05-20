@@ -14,7 +14,8 @@ import store from "../../redux/store";
 import { getStudios } from "../../redux/actions/studiosActions";
 import { loadUser } from "../../redux/actions/authActions";
 import NavBar from "../NavBar";
-import MainContainer from "./MainContainer";
+import MainContainer from "../MainContainer";
+import Footer from "../Footer";
 
 library.add(fab, faMapMarkerAlt, faPhoneAlt, faLink, faEnvelope, faSearch);
 
@@ -30,6 +31,7 @@ export default function App() {
         <div>
           <NavBar />
           <MainContainer />
+          <Footer />
         </div>
       </Router>
     </Provider>

@@ -31,9 +31,9 @@ const SearchForm = () => {
 
   return (
     <Container>
-      <Form>
-        <FormGroup row>
-          <Col sm={10}>
+      <Form row>
+        <Col sm={9}>
+          <FormGroup>
             <Input
               type="text"
               name="search"
@@ -45,13 +45,18 @@ const SearchForm = () => {
             <FormText color="muted">
               Search for studios by name, city, state, or zip code.
             </FormText>
-          </Col>
-          <Col sm={2}>
-            <Button type="submit" aria-label="submit" onClick={handleSubmit}>
-              <FontAwesomeIcon icon="search" />
-            </Button>
-          </Col>
-        </FormGroup>
+          </FormGroup>
+        </Col>
+        <Col sm={3}>
+          <Button
+            type="submit"
+            aria-label="search-submit"
+            color="success"
+            onClick={handleSubmit}
+          >
+            <FontAwesomeIcon icon="search" />
+          </Button>
+        </Col>
       </Form>
     </Container>
   );
