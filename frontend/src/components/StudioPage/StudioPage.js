@@ -29,7 +29,7 @@ const StudioPage = () => {
             {isLoaded && (
               <Container className="studio-container">
                 <div className="studio-name-container">
-                  <h4>{studio.name}</h4>
+                  <h4 className="studio-name">{studio.name}</h4>
                 </div>
                 <div className="studio-desc-container">
                   <StudioInfo studio={studio} />

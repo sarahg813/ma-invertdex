@@ -1,29 +1,39 @@
 .studio-root {
-  @include flex-root;
   margin-top: 2rem;
+  @include bp(med) {
+    @include flex-root;
+    margin-top: 0;
+  }
 }
 
 .studio-container {
   @include flex-column;
-  border-top: 1px solid $steelblue;
-  border-bottom: 1px solid $steelblue;
-  padding: 2rem 0 2rem 0;
 
   @include bp(med) {
     @include flex-column-center;
+    border-top: 1px solid $steelblue;
+    border-bottom: 1px solid $steelblue;
+    padding: 2rem 0 2rem 0;
   }
 }
 .studio-name-container {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  @include bp(med) {
+    margin-bottom: 1.5rem;
+  }
+}
 
-  h4 {
-    font-family: $font-stack-secondary;
+.studio-name {
+  font-family: $font-stack-secondary;
+  font-size: 1.25rem;
+  @include bp(med) {
+    font-size: 1.5rem;
   }
 }
 .studio-desc-container {
   @include flex-column;
   @include bp(med) {
-    display: flex;
+    @include flex-row;
   }
 }
 
