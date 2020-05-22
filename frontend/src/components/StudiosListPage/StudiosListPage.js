@@ -1,16 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  Button,
-  Col,
-  Container,
-  Table,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-} from "reactstrap";
+import { Button, Container, Table, Form, FormGroup, Input } from "reactstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getStudioById } from "../../redux/actions/studioActions";
 import {
   filterStudios,
@@ -50,50 +42,50 @@ const StudiosListPage = () => {
   };
 
   const handleButton = () => {
-    setSelected("All States");
+    setSelected("Filter by State");
     dispatch(setClearResults());
   };
 
   return (
-    <>
+    <div className="studioslist-root">
       <TitleComponent title="All Studios List | Poledex" />
       <Container>
-        <h3>Studios List</h3>
-        <Container>
-          <Form>
-            <FormGroup row>
-              <Label for="stateFilter" sm={2}>
-                Filter by State
-              </Label>
-              <Col sm={6}>
-                <Input
-                  type="select"
-                  name="filter"
-                  id="stateFilter"
-                  value={selected}
-                  onChange={handleOnChange}
-                >
-                  <option>All States</option>
-                  <option>DC</option>
-                  <option>Delaware</option>
-                  <option>Maryland</option>
-                  <option>New Jersey</option>
-                  <option>New York</option>
-                  <option>Pennsylvania</option>
-                  <option>Virginia</option>
-                  <option>West Virginia</option>
-                </Input>
-              </Col>
-              <Col sm={4}>
-                <Button
-                  value="clear filter"
-                  type="button"
-                  onClick={handleButton}
-                >
-                  Clear Filter
-                </Button>
-              </Col>
+        <div>
+          <h3 className="studioslist-title">Studios List</h3>
+        </div>
+        <Container className="studiosfilter-container">
+          <Form className="studiosfilter-form">
+            <FormGroup className="studiosfilter-formgroup">
+              <Input
+                type="select"
+                name="filter"
+                id="statesFilter"
+                value={selected}
+                onChange={handleOnChange}
+              >
+                <option>Filter by State</option>
+                <option>DC</option>
+                <option>Delaware</option>
+                <option>Maryland</option>
+                <option>New Jersey</option>
+                <option>New York</option>
+                <option>Pennsylvania</option>
+                <option>Virginia</option>
+                <option>West Virginia</option>
+              </Input>
             </FormGroup>
+            <div className="studiosfilter-btn-container">
+              <Button
+                color="primary"
+                value="clear filter"
+                type="button"
+                size="sm"
+                className="ml-2"
+                onClick={handleButton}
+              >
+                <FontAwesomeIcon icon="backspace" /> Filter
+              </Button>
+            </div>
           </Form>
         </Container>
         <Container>
@@ -101,10 +93,10 @@ const StudiosListPage = () => {
             <LoadingSpinner />
           ) : (
             <>
-              <Table hover style={{ cursor: "pointer" }}>
+              <Table hover>
                 <thead>
                   <tr>
-                    <th>Studio Name</th>
+                    <th className="studioslist-th">Studio Name</th>
                     <th>City</th>
                     <th>State</th>
                   </tr>
@@ -113,6 +105,7 @@ const StudiosListPage = () => {
                   {studiosData.map((studio) => (
                     <React.Fragment key={studio._id}>
                       <tr
+                        className="studioslist-tr"
                         onClick={() => {
                           handleOnClick(studio._id);
                         }}
@@ -129,7 +122,7 @@ const StudiosListPage = () => {
           )}
         </Container>{" "}
       </Container>
-    </>
+    </div>
   );
 };
 

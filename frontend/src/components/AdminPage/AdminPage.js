@@ -17,9 +17,12 @@ const AdminPage = () => {
   };
 
   return (
-    <>
+    <Container className="admin-root">
       <TitleComponent title="Admin Page | Poledex" />
-      <Container>
+      <>
+        <div>
+          <h3 className="admin-title">Admin Page</h3>
+        </div>
         {!isAuthenticated ? (
           <Container>
             <p>You must be logged in to see this page!</p>
@@ -30,8 +33,9 @@ const AdminPage = () => {
               <LoadingSpinner />
             ) : (
               <>
-                <h3>Admin Page</h3>
-                <AddStudioModal />
+                <div className="addbtn-container">
+                  <AddStudioModal />
+                </div>
                 <Table>
                   <thead>
                     <tr>
@@ -57,7 +61,7 @@ const AdminPage = () => {
                           <td>
                             <Button
                               value="Delete"
-                              color="danger"
+                              outline
                               size="sm"
                               type="button"
                               onClick={() => handleDelete(studio._id)}
@@ -74,8 +78,8 @@ const AdminPage = () => {
             )}
           </Container>
         )}
-      </Container>
-    </>
+      </>
+    </Container>
   );
 };
 

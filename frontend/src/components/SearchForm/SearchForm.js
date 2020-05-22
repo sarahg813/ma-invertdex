@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { withRouter, useHistory } from "react-router-dom";
 import {
   Button,
-  Col,
   Container,
   Form,
   FormGroup,
@@ -30,24 +29,22 @@ const SearchForm = () => {
   };
 
   return (
-    <Container>
-      <Form row>
-        <Col sm={9}>
-          <FormGroup>
-            <Input
-              type="text"
-              name="search"
-              id="search"
-              value={searchQuery}
-              onChange={handleOnChange}
-            />
+    <Container className="search-root">
+      <Form>
+        <FormGroup className="search-formgroup">
+          <Input
+            type="text"
+            name="search"
+            id="search"
+            value={searchQuery}
+            onChange={handleOnChange}
+          />
 
-            <FormText color="muted">
-              Search for studios by name, city, state, or zip code.
-            </FormText>
-          </FormGroup>
-        </Col>
-        <Col sm={3}>
+          <FormText color="muted">
+            Search for studios by name, city, state, or zip code.
+          </FormText>
+        </FormGroup>
+        <div>
           <Button
             type="submit"
             aria-label="search-submit"
@@ -56,7 +53,7 @@ const SearchForm = () => {
           >
             <FontAwesomeIcon icon="search" />
           </Button>
-        </Col>
+        </div>
       </Form>
     </Container>
   );

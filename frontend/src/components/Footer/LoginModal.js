@@ -63,7 +63,7 @@ const LoginModal = () => {
 
   return (
     <>
-      <Button outline size="sm" onClick={handleToggle}>
+      <Button size="sm" color="dark" onClick={handleToggle}>
         Admin Login
       </Button>
 
@@ -97,8 +97,8 @@ const LoginModal = () => {
               <Button
                 value="Save"
                 type="submit"
-                outline
-                color="primary"
+                size="sm"
+                color="success"
                 onClick={handleSubmit}
               >
                 Login

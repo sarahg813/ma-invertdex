@@ -1,0 +1,12 @@
+.home-root {
+  @include flex-root;
+
+  h4 {
+    font-family: $font-stack-secondary;
+    font-size: 2rem;
+  }
+}
+
+.home-container {
+  @include flex-column-center;
+}

@@ -1,0 +1,11 @@
+.admin-root {
+  margin-top: 2rem;
+}
+
+.admin-title {
+  @include page-title;
+}
+
+.addbtn-container {
+  @include flex-end;
+}

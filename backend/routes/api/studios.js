@@ -41,7 +41,6 @@ router.route("/add").post(async (req, res) => {
   const instagram = req.body.instagram;
   const twitter = req.body.twitter;
   const youtube = req.body.youtube;
-  const categories = req.body.categories.split(", ");
 
   const newStudio = new Studio({
     name,
@@ -65,7 +64,6 @@ router.route("/add").post(async (req, res) => {
       twitter,
       youtube,
     },
-    categories,
   });
 
   try {
@@ -168,7 +166,6 @@ router.route("/filter").get(async (req, res) => {
 //   const email = req.body.email;
 //   const website = req.body.website;
 //   const socialMedia = req.body.socialMedia;
-//   const categories = req.body.categories;
 
 //   const newStudio = new Studio({
 //     name,
@@ -178,7 +175,6 @@ router.route("/filter").get(async (req, res) => {
 //     email,
 //     website,
 //     socialMedia,
-//      categories
 //   });
 
 //   newStudio

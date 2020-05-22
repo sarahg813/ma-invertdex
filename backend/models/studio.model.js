@@ -23,7 +23,6 @@ const StudioSchema = new Schema({
     twitter: String,
     youtube: String,
   },
-  categories: [],
 });
 
 const Studio = mongoose.model("Studio", StudioSchema);

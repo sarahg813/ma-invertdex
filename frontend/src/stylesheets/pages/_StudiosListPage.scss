@@ -1,0 +1,35 @@
+.studioslist-root {
+  margin-top: 2rem;
+}
+
+.studioslist-title {
+  @include page-title;
+}
+
+.studiosfilter-container {
+  margin-bottom: 1rem;
+}
+
+.studiosfilter-form {
+  @include flex-end;
+  align-items: center;
+}
+
+.studiosfilter-formgroup {
+  width: 13rem;
+  margin-bottom: 0;
+  select {
+    cursor: pointer;
+  }
+  @include bp(med) {
+    width: 18rem;
+  }
+}
+
+.studioslist-tr {
+  cursor: pointer;
+}
+
+.studioslist-th {
+  font-weight: 700;
+}

@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import {
+  faBackspace,
   faMapMarkerAlt,
   faPhoneAlt,
   faLink,
@@ -17,7 +18,15 @@ import NavBar from "../NavBar";
 import MainContainer from "../MainContainer";
 import Footer from "../Footer";
 
-library.add(fab, faMapMarkerAlt, faPhoneAlt, faLink, faEnvelope, faSearch);
+library.add(
+  fab,
+  faBackspace,
+  faMapMarkerAlt,
+  faPhoneAlt,
+  faLink,
+  faEnvelope,
+  faSearch
+);
 
 export default function App() {
   useEffect(() => {

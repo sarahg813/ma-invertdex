@@ -1,0 +1,8 @@
+.leaflet-container {
+  width: 325px;
+  height: 325px;
+  @include bp(lg) {
+    width: 400px;
+    height: 400px;
+  }
+}

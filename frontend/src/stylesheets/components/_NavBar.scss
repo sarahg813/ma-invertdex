@@ -1,15 +1,16 @@
-@import "../../styles/variables.scss";
-
 .navbar {
-  background-color: #fff3df;
+  background-color: #fff;
+  border-bottom: 1px solid $gray;
 }
 
 .navbar-brand {
-  font-size: 2rem !important;
+  font-size: 1.75rem !important;
   font-family: $font-stack-tertiary;
 }
 
 .nav-link {
   font-family: $font-stack-primary;
   color: $black !important;
+  font-weight: 600;
+  font-size: 0.9rem;
 }

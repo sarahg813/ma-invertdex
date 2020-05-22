@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "leaflet/dist/leaflet.css";
-import App from "./components/App/App";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "normalize.css";
-import "./scss/custom.scss";
+import "./index.css";
+import App from "./components/App/App";
+require("./stylesheets/main.scss");
 
 ReactDOM.render(
   <React.StrictMode>

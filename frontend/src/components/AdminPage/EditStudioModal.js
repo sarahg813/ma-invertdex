@@ -55,7 +55,7 @@ const EditStudioModal = (props) => {
       <Button
         value="Edit"
         outline
-        color="warning"
+        color="primary"
         size="sm"
         type="button"
         onClick={handleOnClick}
@@ -244,24 +244,13 @@ const EditStudioModal = (props) => {
                   onChange={handleInputChange}
                 />
               </FormGroup>
-              <FormGroup>
-                <Label for="Categories">Categories</Label>
-                <Input
-                  type="text"
-                  name="categories"
-                  className="mb-3"
-                  defaultValue={studio.categories}
-                  onChange={handleInputChange}
-                />
-              </FormGroup>
               <Button
                 value="Save"
                 type="submit"
-                outline
-                color="primary"
+                color="success"
                 onClick={handleSubmit}
               >
-                Save
+                Update
               </Button>
             </Form>
           )}

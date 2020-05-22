@@ -1,0 +1,27 @@
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  border-top: 1px solid $gray;
+  z-index: 10;
+  @include flex-end;
+}
+
+.footer-root {
+  margin-right: 2rem;
+}
+
+.admin-link {
+  margin-right: 1.5rem;
+  color: $black;
+  font-family: $font-stack-primary;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.admin-link:hover {
+  text-decoration: none;
+  color: $black;
+}

@@ -8,7 +8,7 @@ const Logout = () => {
 
   return (
     <>
-      <Button outline size="sm" onClick={() => dispatch(logout())}>
+      <Button size="sm" onClick={() => dispatch(logout())}>
         Admin Logout
       </Button>
     </>

@@ -18,47 +18,48 @@ const SearchResultsPage = () => {
   };
 
   return (
-    <>
+    <Container className="searchresults-root">
       <TitleComponent title="Search Results | Poledex" />
-      <Container>
-        <SearchForm />
-        <Container>
-          {isLoading ? (
+
+      <SearchForm />
+      <>
+        {isLoading ? (
+          <div className="searchresults-spinner">
             <LoadingSpinner />
-          ) : (
-            <>
-              <h3>Studios List</h3>
-              <Table hover style={{ cursor: "pointer" }}>
-                <thead>
-                  <tr>
-                    <th>Studio Name</th>
-                    <th>City</th>
-                    <th>State</th>
-                    <th>Categories</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {results.map((studio) => (
-                    <React.Fragment key={studio._id}>
-                      <tr
-                        onClick={() => {
-                          handleOnClick(studio._id);
-                        }}
-                      >
-                        <th scope="row">{studio.name}</th>
-                        <td>{studio.address.city}</td>
-                        <td>{studio.address.state[0]}</td>
-                        <td>{studio.categories.join(", ")} </td>
-                      </tr>
-                    </React.Fragment>
-                  ))}
-                </tbody>
-              </Table>
-            </>
-          )}
-        </Container>
-      </Container>
-    </>
+          </div>
+        ) : (
+          <>
+            <div>
+              <h3 className="searchresults-title">Search Results</h3>
+            </div>
+            <Table hover style={{ cursor: "pointer" }}>
+              <thead>
+                <tr>
+                  <th>Studio Name</th>
+                  <th>City</th>
+                  <th>State</th>
+                </tr>
+              </thead>
+              <tbody>
+                {results.map((studio) => (
+                  <React.Fragment key={studio._id}>
+                    <tr
+                      onClick={() => {
+                        handleOnClick(studio._id);
+                      }}
+                    >
+                      <th scope="row">{studio.name}</th>
+                      <td>{studio.address.city}</td>
+                      <td>{studio.address.state[0]}</td>
+                    </tr>
+                  </React.Fragment>
+                ))}
+              </tbody>
+            </Table>
+          </>
+        )}
+      </>
+    </Container>
   );
 };
 

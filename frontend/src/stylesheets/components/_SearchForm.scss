@@ -1,0 +1,12 @@
+.search-root {
+  margin-top: 2rem;
+
+  form {
+    @include flex-center;
+  }
+}
+
+.search-formgroup {
+  width: 25rem !important;
+  margin-right: 1rem;
+}

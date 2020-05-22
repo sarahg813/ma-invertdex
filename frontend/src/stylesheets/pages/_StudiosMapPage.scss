@@ -1,0 +1,24 @@
+.studiosmap-root {
+  @include flex-root;
+}
+
+.studiosmap-title {
+  @include page-title;
+}
+.map-container {
+  height: 63vh;
+
+  @include bp(lg) {
+    height: 78vh;
+  }
+}
+
+.popup-container {
+  font-family: $font-stack-primary;
+  font-size: 0.9rem;
+  line-height: 0.5rem;
+}
+
+.popup-name {
+  font-weight: 600;
+}

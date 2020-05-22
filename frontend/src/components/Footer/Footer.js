@@ -1,19 +1,8 @@
 import React from "react";
-import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { Container } from "reactstrap";
 import { useSelector } from "react-redux";
-import Logout from "../Auth/Logout";
-import LoginModal from "../Auth/LoginModal";
-
-const FooterContainer = styled.footer`
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-  line-height: 60px;
-  background-color: #f5f5f5;
-`;
+import Logout from "./Logout";
+import LoginModal from "./LoginModal";
 
 const Footer = () => {
   const { isAuthenticated } = useSelector((state) => state.auth);
@@ -21,7 +10,9 @@ const Footer = () => {
   const authLinks = (
     <>
       <nav>
-        <NavLink to="/admin">Admin</NavLink>
+        <NavLink to="/admin" className="admin-link">
+          ADMIN PAGE
+        </NavLink>
         <Logout />
       </nav>
     </>
@@ -34,9 +25,11 @@ const Footer = () => {
   );
 
   return (
-    <FooterContainer>
-      <Container>{isAuthenticated ? authLinks : loginLink}</Container>
-    </FooterContainer>
+    <footer>
+      <div className="footer-root">
+        {isAuthenticated ? authLinks : loginLink}
+      </div>
+    </footer>
   );
 };
 

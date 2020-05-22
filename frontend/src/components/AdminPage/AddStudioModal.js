@@ -31,7 +31,6 @@ const AddStudioModal = () => {
     instagram: "",
     twitter: "",
     youtube: "",
-    categories: "",
   };
   const [newStudio, setNewStudio] = useState({ initialState });
   const [modal, setModal] = useState(false);
@@ -61,10 +60,10 @@ const AddStudioModal = () => {
     <div>
       <Button
         value="Add Studio"
-        outline
         color="success"
         size="sm"
         type="button"
+        className="mb-2"
         onClick={handleToggle}
       >
         Add Studio
@@ -199,7 +198,6 @@ const AddStudioModal = () => {
                 onChange={handleInputChange}
               />
             </FormGroup>
-
             <p>Social Media Links:</p>
             <FormGroup>
               <Label for="Facebook">Facebook</Label>
@@ -237,20 +235,10 @@ const AddStudioModal = () => {
                 onChange={handleInputChange}
               />
             </FormGroup>
-            <FormGroup>
-              <Label for="Categories">Categories</Label>
-              <Input
-                type="text"
-                name="categories"
-                value={newStudio.categories}
-                onChange={handleInputChange}
-              />
-            </FormGroup>
             <Button
               value="Save"
               type="submit"
-              outline
-              color="primary"
+              color="success"
               onClick={handleSubmit}
             >
               Save

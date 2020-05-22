@@ -1,0 +1,41 @@
+.studio-root {
+  @include flex-root;
+  margin-top: 2rem;
+}
+
+.studio-container {
+  @include flex-column;
+  border-top: 1px solid $steelblue;
+  border-bottom: 1px solid $steelblue;
+  padding: 2rem 0 2rem 0;
+
+  @include bp(med) {
+    @include flex-column-center;
+  }
+}
+.studio-name-container {
+  margin-bottom: 1.5rem;
+
+  h4 {
+    font-family: $font-stack-secondary;
+  }
+}
+.studio-desc-container {
+  @include flex-column;
+  @include bp(med) {
+    display: flex;
+  }
+}
+
+.studioinfo-links {
+  color: $black;
+}
+
+.studioinfo-links:hover {
+  color: $seagreen;
+}
+.studioinfo-icons {
+  font-size: 1.2rem;
+  margin-right: 1rem;
+  color: $seagreen;
+}

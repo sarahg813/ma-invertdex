@@ -14,11 +14,7 @@ const StudioMap = (props) => {
   const position = [props.coordinates.latitude, props.coordinates.longitude];
 
   return (
-    <Map
-      center={position}
-      zoom={17}
-      style={{ width: "400px", height: "400px" }}
-    >
+    <Map center={position} zoom={17}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
         url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"

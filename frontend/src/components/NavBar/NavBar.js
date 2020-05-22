@@ -9,7 +9,6 @@ import {
   NavItem,
   NavLink,
 } from "reactstrap";
-import "./NavBar.scss";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
