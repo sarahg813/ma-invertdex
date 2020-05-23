@@ -98,6 +98,7 @@ const LoginModal = () => {
                 value="Save"
                 type="submit"
                 size="sm"
+                outline
                 color="success"
                 onClick={handleSubmit}
               >
