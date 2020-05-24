@@ -1,25 +1,26 @@
 {
-  "name": "mern-poledex",
+  "name": "mern_poledex_backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "client": "cd frontend && npm start",
-    "server": "cd backend && nodemon server.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "start": "node server.js",
+    "client": "cd client && npm start",
+    "server": "nodemon server.js",
+    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sarahg813/mern-poledex.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/sarahg813/mern-poledex/issues"
-  },
-  "homepage": "https://github.com/sarahg813/mern-poledex#readme",
+  "license": "MIT",
   "dependencies": {
-    "concurrently": "^5.2.0"
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^5.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.12",
+    "nodemon": "^2.0.3"
+  },
+  "engines": {
+    "node": "13.11.0"
   }
 }
