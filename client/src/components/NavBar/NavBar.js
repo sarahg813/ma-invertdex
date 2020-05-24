@@ -16,7 +16,7 @@ const NavBar = () => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div>
+    <div role="navigation" aria-label="main navigation">
       <Navbar light expand="md">
         <NavbarBrand tag={RouterLink} to="/">
           poledex

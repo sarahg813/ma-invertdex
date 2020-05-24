@@ -47,7 +47,7 @@ const StudiosListPage = () => {
   };
 
   return (
-    <div className="studioslist-root">
+    <div className="studioslist-root" role="studios table">
       <TitleComponent title="All Studios List | Poledex" />
       <Container>
         <div>

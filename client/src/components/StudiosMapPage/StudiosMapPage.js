@@ -26,7 +26,7 @@ const StudiosMapPage = () => {
     dispatch(getStudioById(id));
   };
   return (
-    <Container className="studiosmap-root">
+    <Container className="studiosmap-root" role="map">
       <TitleComponent title="Studios Map | Poledex" />
       <>
         {isLoading ? (

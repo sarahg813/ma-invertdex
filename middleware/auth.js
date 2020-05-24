@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const jwtSecret = process.env.JWT_SECRET || "secret88";
+const jwtSecret = process.env.JWT_SECRET;
 
 //when we want a private route
 //add this auth middleware
@@ -9,7 +9,7 @@ function auth(req, res, next) {
 
   //check for token
   if (!token)
-    return res.status(401).json({ msg: "No token, authorizaiton denied!" });
+    return res.status(401).json({ msg: "No token, authorization denied!" });
 
   try {
     //verify token

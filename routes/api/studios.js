@@ -154,34 +154,33 @@ router.route("/filter").get(async (req, res) => {
   }
 });
 
-//-------INSOMNIA---------------
-//POST /studios/add
-//create a studio
-//private access
-// router.route("/add").post((req, res) => {
-//   const name = req.body.name;
-//   const address = req.body.address;
-//   const coordinates = req.body.coordinates;
-//   const phoneNum = req.body.phoneNum;
-//   const email = req.body.email;
-//   const website = req.body.website;
-//   const socialMedia = req.body.socialMedia;
+// -------INSOMNIA---------------
+// POST /studios/insomnia
+// create a studio using Insomnia app
+// private access
+router.route("/insomnia").post((req, res) => {
+  const name = req.body.name;
+  const address = req.body.address;
+  const coordinates = req.body.coordinates;
+  const phoneNum = req.body.phoneNum;
+  const email = req.body.email;
+  const website = req.body.website;
+  const socialMedia = req.body.socialMedia;
 
-//   const newStudio = new Studio({
-//     name,
-//     address,
-//     coordinates,
-//     phoneNum,
-//     email,
-//     website,
-//     socialMedia,
-//   });
+  const newStudio = new Studio({
+    name,
+    address,
+    coordinates,
+    phoneNum,
+    email,
+    website,
+    socialMedia,
+  });
 
-//   newStudio
-//     .save()
-//     .then(() => res.json("Studio added!"))
-//     .catch((err) => res.status(400).json("Error: " + err));
-// });
-//-------INSOMNIA---------------
+  newStudio
+    .save()
+    .then(() => res.json("Studio added!"))
+    .catch((err) => res.status(400).json("Error: " + err));
+});
 
 module.exports = router;

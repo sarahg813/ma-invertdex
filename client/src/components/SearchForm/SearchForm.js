@@ -29,7 +29,7 @@ const SearchForm = () => {
   };
 
   return (
-    <Container className="search-root">
+    <Container className="search-root" role="search">
       <Form>
         <FormGroup className="search-formgroup">
           <Input
