@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const jwtSecret = process.env.JWT_SECRET;
+const jwtSecret = process.env.JWT_SECRET || "secret88";
 
 //when we want a private route
 //add this auth middleware
