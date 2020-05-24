@@ -1,9 +1,16 @@
 .home-root {
   @include flex-root;
-
+  background: url(../../images/midatlantic-375.png) left center no-repeat;
   h4 {
     font-family: $font-stack-secondary;
     font-size: 2rem;
+  }
+
+  @include bp(md) {
+    background: url(../../images/midatlantic-425.png) left center no-repeat;
+  }
+  @include bp(lg) {
+    background: url(../../images/midatlantic-800.png) left center no-repeat;
   }
 }
 

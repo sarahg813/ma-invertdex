@@ -40,7 +40,7 @@ const SearchForm = () => {
             onChange={handleOnChange}
           />
 
-          <FormText color="muted">
+          <FormText color="dark">
             Search for studios by name, city, state, or zip code.
           </FormText>
         </FormGroup>

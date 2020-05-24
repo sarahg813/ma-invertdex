@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Container, Button } from "reactstrap";
 import L from "leaflet";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
-import mapIcon from "../images/map-icon.png";
+import mapIcon from "../../images/map-icon.png";
 import LoadingSpinner from "../tools/LoadingSpinner";
 import { getStudioById } from "../../redux/actions/studioActions";
 import { TitleComponent } from "../tools/TitleComponent";
