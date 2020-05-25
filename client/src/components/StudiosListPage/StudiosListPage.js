@@ -49,50 +49,50 @@ const StudiosListPage = () => {
   return (
     <div className="studioslist-root">
       <TitleComponent title="All Studios List | Poledex" />
-      <Container>
-        <div>
-          <h3 className="studioslist-title">Studios List</h3>
-        </div>
-        <Container className="studiosfilter-container">
-          <Form className="studiosfilter-form">
-            <FormGroup className="studiosfilter-formgroup">
-              <Input
-                type="select"
-                name="filter"
-                id="statesFilter"
-                value={selected}
-                onChange={handleOnChange}
-              >
-                <option>Filter by State</option>
-                <option>DC</option>
-                <option>Delaware</option>
-                <option>Maryland</option>
-                <option>New Jersey</option>
-                <option>New York</option>
-                <option>Pennsylvania</option>
-                <option>Virginia</option>
-                <option>West Virginia</option>
-              </Input>
-            </FormGroup>
-            <div className="studiosfilter-btn-container">
-              <Button
-                color="primary"
-                value="clear filter"
-                type="button"
-                size="sm"
-                className="ml-2"
-                onClick={handleButton}
-              >
-                <FontAwesomeIcon icon="backspace" /> Filter
-              </Button>
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <>
+          <Container>
+            <div>
+              <h3 className="studioslist-title">Studios List</h3>
             </div>
-          </Form>
-        </Container>
-        <Container>
-          {isLoading ? (
-            <LoadingSpinner />
-          ) : (
-            <>
+            <Container className="studiosfilter-container">
+              <Form className="studiosfilter-form">
+                <FormGroup className="studiosfilter-formgroup">
+                  <Input
+                    type="select"
+                    name="filter"
+                    id="statesFilter"
+                    value={selected}
+                    onChange={handleOnChange}
+                  >
+                    <option>Filter by State</option>
+                    <option>DC</option>
+                    <option>Delaware</option>
+                    <option>Maryland</option>
+                    <option>New Jersey</option>
+                    <option>New York</option>
+                    <option>Pennsylvania</option>
+                    <option>Virginia</option>
+                    <option>West Virginia</option>
+                  </Input>
+                </FormGroup>
+                <div className="studiosfilter-btn-container">
+                  <Button
+                    color="primary"
+                    value="clear filter"
+                    type="button"
+                    size="sm"
+                    className="ml-2"
+                    onClick={handleButton}
+                  >
+                    <FontAwesomeIcon icon="backspace" /> Filter
+                  </Button>
+                </div>
+              </Form>
+            </Container>
+            <Container>
               <Table hover>
                 <thead>
                   <tr>
@@ -118,10 +118,10 @@ const StudiosListPage = () => {
                   ))}
                 </tbody>
               </Table>
-            </>
-          )}
-        </Container>{" "}
-      </Container>
+            </Container>
+          </Container>
+        </>
+      )}
     </div>
   );
 };

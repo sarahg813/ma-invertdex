@@ -142,10 +142,11 @@ router.route("/search").get(async (req, res) => {
 router.route("/filter").get(async (req, res) => {
   try {
     const filterQuery = new RegExp(escapeRegex(req.query.q), "gi");
+    let sortName = { name: 1 };
 
     const filterResults = await Studio.find({
       $or: [{ "address.state": filterQuery }],
-    });
+    }).sort(sortName);
 
     if (!filterResults) throw Error("Error: Can't get filter results.");
     res.status(200).json(filterResults);
