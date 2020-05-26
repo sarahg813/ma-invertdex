@@ -25,12 +25,12 @@ const NavBar = () => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink tag={RouterLink} to="/studioslist">
+              <NavLink tag={RouterLink} to="/studioslist" onClick={toggle}>
                 ALL STUDIOS
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={RouterLink} to="/studiosmap">
+              <NavLink tag={RouterLink} to="/studiosmap" onClick={toggle}>
                 STUDIOS MAP
               </NavLink>
             </NavItem>
