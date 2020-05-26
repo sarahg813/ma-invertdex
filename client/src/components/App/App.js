@@ -11,7 +11,7 @@ import {
   faEnvelope,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
-import store from "../../redux/store";
+import configureStore from "../../redux/configureStore";
 import { getStudios } from "../../redux/actions/studiosActions";
 import { loadUser } from "../../redux/actions/authActions";
 import NavBar from "../NavBar";
@@ -27,6 +27,8 @@ library.add(
   faEnvelope,
   faSearch
 );
+
+const store = configureStore();
 
 export default function App() {
   useEffect(() => {

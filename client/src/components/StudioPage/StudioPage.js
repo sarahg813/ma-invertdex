@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useParams, withRouter } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Container, Row, Col } from "reactstrap";
-import store from "../../redux/store";
+import configureStore from "../../redux/configureStore";
 import LoadingSpinner from "../tools/LoadingSpinner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getStudioById } from "../../redux/actions/studioActions";
@@ -15,7 +15,7 @@ const StudioPage = () => {
   let { id } = useParams();
 
   useEffect(() => {
-    store.dispatch(getStudioById(id));
+    configureStore.dispatch(getStudioById(id));
   }, [id]);
 
   return (
