@@ -8,7 +8,6 @@ const StudioSchema = new Schema({
     city: String,
     state: [],
     postalCode: String,
-    country: String,
   },
   coordinates: {
     latitude: Number,

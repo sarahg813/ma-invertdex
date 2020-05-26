@@ -21,7 +21,6 @@ const AddStudioModal = () => {
     city: "",
     state: "",
     postalCode: "",
-    country: "",
     latitude: "",
     longitude: "",
     phoneNum: "",
@@ -69,7 +68,7 @@ const AddStudioModal = () => {
         Add Studio
       </Button>
 
-      <Modal isOpen={modal} toggle={handleToggle}>
+      <Modal isOpen={modal} toggle={handleToggle} size="lg">
         <ModalHeader toggle={handleToggle}>Add a New Studio</ModalHeader>
         <ModalBody>
           <div role="form">
@@ -138,16 +137,6 @@ const AddStudioModal = () => {
                   </FormGroup>
                 </Col>
               </Row>
-              <FormGroup>
-                <Label for="Country">Country</Label>
-                <Input
-                  type="text"
-                  name="country"
-                  value="United States"
-                  onChange={handleInputChange}
-                />
-              </FormGroup>
-
               <Row form>
                 <Col md={6}>
                   <FormGroup>
@@ -172,24 +161,30 @@ const AddStudioModal = () => {
                   </FormGroup>
                 </Col>
               </Row>
-              <FormGroup>
-                <Label for="Phone Number">Phone Number</Label>
-                <Input
-                  type="text"
-                  name="phoneNum"
-                  value={newStudio.phoneNum}
-                  onChange={handleInputChange}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label for="Email">Email</Label>
-                <Input
-                  type="text"
-                  name="email"
-                  value={newStudio.email}
-                  onChange={handleInputChange}
-                />
-              </FormGroup>
+              <Row form>
+                <Col md={6}>
+                  <FormGroup>
+                    <Label for="Phone Number">Phone Number</Label>
+                    <Input
+                      type="text"
+                      name="phoneNum"
+                      value={newStudio.phoneNum}
+                      onChange={handleInputChange}
+                    />
+                  </FormGroup>
+                </Col>
+                <Col md={6}>
+                  <FormGroup>
+                    <Label for="Email">Email</Label>
+                    <Input
+                      type="text"
+                      name="email"
+                      value={newStudio.email}
+                      onChange={handleInputChange}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
               <FormGroup>
                 <Label for="Website">Website</Label>
                 <Input
@@ -200,42 +195,54 @@ const AddStudioModal = () => {
                 />
               </FormGroup>
               <p>Social Media Links:</p>
-              <FormGroup>
-                <Label for="Facebook">Facebook</Label>
-                <Input
-                  type="text"
-                  name="facebook"
-                  value={newStudio.facebook}
-                  onChange={handleInputChange}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label for="Instagram">Instagram</Label>
-                <Input
-                  type="text"
-                  name="instagram"
-                  value={newStudio.instagram}
-                  onChange={handleInputChange}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label for="Twitter">Twitter</Label>
-                <Input
-                  type="text"
-                  name="twitter"
-                  value={newStudio.twitter}
-                  onChange={handleInputChange}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label for="Youtube">Youtube</Label>
-                <Input
-                  type="text"
-                  name="youtube"
-                  value={newStudio.youtube}
-                  onChange={handleInputChange}
-                />
-              </FormGroup>
+              <Row form>
+                <Col md={6}>
+                  <FormGroup>
+                    <Label for="Facebook">Facebook</Label>
+                    <Input
+                      type="text"
+                      name="facebook"
+                      value={newStudio.facebook}
+                      onChange={handleInputChange}
+                    />
+                  </FormGroup>
+                </Col>
+                <Col md={6}>
+                  <FormGroup>
+                    <Label for="Instagram">Instagram</Label>
+                    <Input
+                      type="text"
+                      name="instagram"
+                      value={newStudio.instagram}
+                      onChange={handleInputChange}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+              <Row form>
+                <Col md={6}>
+                  <FormGroup>
+                    <Label for="Twitter">Twitter</Label>
+                    <Input
+                      type="text"
+                      name="twitter"
+                      value={newStudio.twitter}
+                      onChange={handleInputChange}
+                    />
+                  </FormGroup>
+                </Col>
+                <Col md={6}>
+                  <FormGroup>
+                    <Label for="Youtube">Youtube</Label>
+                    <Input
+                      type="text"
+                      name="youtube"
+                      value={newStudio.youtube}
+                      onChange={handleInputChange}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
               <Button
                 value="Save"
                 type="submit"

@@ -31,7 +31,6 @@ router.route("/add").post(async (req, res) => {
   const city = req.body.city;
   const state = req.body.state.split(", ");
   const postalCode = req.body.postalCode;
-  const country = req.body.country;
   const latitude = req.body.latitude;
   const longitude = req.body.longitude;
   const phoneNum = req.body.phoneNum;
@@ -49,7 +48,6 @@ router.route("/add").post(async (req, res) => {
       city,
       state,
       postalCode,
-      country,
     },
     coordinates: {
       latitude,
