@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { useLocation, withRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -30,7 +30,9 @@ library.add(
 
 const store = configureStore();
 
-export default function App() {
+function App(props) {
+  let location = useLocation();
+
   useEffect(() => {
     store.dispatch(getStudios());
     store.dispatch(loadUser());
@@ -38,13 +40,13 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <Router>
-        <div>
-          <NavBar />
-          <MainContainer />
-          <Footer />
-        </div>
-      </Router>
+      <div>
+        <NavBar />
+        <MainContainer />
+        {props.location.pathname === "/" ? <Footer /> : null}
+      </div>
     </Provider>
   );
 }
+
+export default withRouter(App);
