@@ -21,7 +21,7 @@
   select {
     cursor: pointer;
   }
-  @include bp(med) {
+  @include bp(md) {
     width: 18rem;
   }
 }

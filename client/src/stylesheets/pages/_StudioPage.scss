@@ -1,6 +1,6 @@
 .studio-root {
   margin-top: 2rem;
-  @include bp(med) {
+  @include bp(md) {
     @include flex-root;
     margin-top: 0;
   }
@@ -9,7 +9,7 @@
 .studio-container {
   @include flex-column;
 
-  @include bp(med) {
+  @include bp(md) {
     @include flex-column-center;
     border-top: 1px solid $steelblue;
     border-bottom: 1px solid $steelblue;
@@ -18,7 +18,7 @@
 }
 .studio-name-container {
   margin-bottom: 1rem;
-  @include bp(med) {
+  @include bp(md) {
     margin-bottom: 1.5rem;
   }
 }
@@ -26,13 +26,13 @@
 .studio-name {
   font-family: $font-stack-secondary;
   font-size: 1.25rem;
-  @include bp(med) {
+  @include bp(md) {
     font-size: 1.5rem;
   }
 }
 .studio-desc-container {
   @include flex-column;
-  @include bp(med) {
+  @include bp(md) {
     @include flex-row;
   }
 }

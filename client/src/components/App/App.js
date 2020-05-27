@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useLocation, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -31,8 +31,6 @@ library.add(
 const store = configureStore();
 
 function App(props) {
-  let location = useLocation();
-
   useEffect(() => {
     store.dispatch(getStudios());
     store.dispatch(loadUser());

@@ -4,10 +4,10 @@
   display: flex;
   flex-direction: column;
   overflow: auto;
-  @include bp(med) {
+  @include bp(lg) {
     height: 80vh;
   }
-  @include bp(lg) {
+  @include bp(xl) {
     height: 88vh;
   }
 }

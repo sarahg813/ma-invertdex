@@ -6,10 +6,10 @@
     font-size: 2rem;
   }
 
-  @include bp(md) {
+  @include bp(lg) {
     background: url(../../images/midatlantic-425.png) left center no-repeat;
   }
-  @include bp(lg) {
+  @include bp(xl) {
     background: url(../../images/midatlantic-800.png) left center no-repeat;
   }
 }
