@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavLink as RouterLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import {
   Collapse,
   Navbar,
@@ -9,11 +10,18 @@ import {
   NavItem,
   NavLink,
 } from "reactstrap";
+import { setClearResults } from "../../redux/actions/studiosActions";
 
 const NavBar = () => {
+  const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+
+  const handleAllStudios = () => {
+    dispatch(setClearResults());
+    toggle();
+  };
 
   return (
     <div role="navigation" aria-label="main navigation">
@@ -25,7 +33,11 @@ const NavBar = () => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink tag={RouterLink} to="/studioslist" onClick={toggle}>
+              <NavLink
+                tag={RouterLink}
+                to="/studioslist"
+                onClick={handleAllStudios}
+              >
                 ALL STUDIOS
               </NavLink>
             </NavItem>

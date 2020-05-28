@@ -39,7 +39,7 @@ const StudiosMapPage = () => {
             <Container className="map-container">
               <Map
                 center={[40.2732, -76.8867]}
-                zoom={6}
+                zoom={5}
                 style={{ width: "100%", height: "100%" }}
               >
                 <TileLayer

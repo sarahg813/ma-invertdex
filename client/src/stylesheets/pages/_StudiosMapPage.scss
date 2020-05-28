@@ -8,7 +8,7 @@
 .map-container {
   height: 63vh;
 
-  @include bp(lg) {
+  @include bp(xl) {
     height: 78vh;
   }
 }

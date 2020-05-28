@@ -38,6 +38,7 @@ const SearchResultsPage = () => {
                   <th>Studio Name</th>
                   <th>City</th>
                   <th>State</th>
+                  <th>Zip Code</th>
                 </tr>
               </thead>
               <tbody>
@@ -51,6 +52,7 @@ const SearchResultsPage = () => {
                       <th scope="row">{studio.name}</th>
                       <td>{studio.address.city}</td>
                       <td>{studio.address.state[0]}</td>
+                      <td>{studio.address.postalCode}</td>
                     </tr>
                   </React.Fragment>
                 ))}
