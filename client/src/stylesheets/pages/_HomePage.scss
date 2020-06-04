@@ -3,14 +3,24 @@
   background: url(../../images/midatlantic-375.png) left center no-repeat;
   h4 {
     font-family: $font-stack-secondary;
-    font-size: 2rem;
+    font-size: 1.5rem;
+  }
+
+  @include bp(sm) {
+    background: url(../../images/midatlantic-180.png) left center no-repeat;
   }
 
   @include bp(lg) {
     background: url(../../images/midatlantic-425.png) left center no-repeat;
+    h4 {
+      font-size: 2rem;
+    }
   }
   @include bp(xl) {
     background: url(../../images/midatlantic-800.png) left center no-repeat;
+    h4 {
+      font-size: 2rem;
+    }
   }
 }
 

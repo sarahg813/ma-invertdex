@@ -9,13 +9,15 @@ import { getStudioById } from "../../redux/actions/studioActions";
 import StudioMap from "./StudioMap";
 import { TitleComponent } from "../tools/TitleComponent";
 
+const store = configureStore();
+
 const StudioPage = () => {
   const { studio, isLoading, isLoaded } = useSelector((state) => state.studio);
 
   let { id } = useParams();
 
   useEffect(() => {
-    configureStore.dispatch(getStudioById(id));
+    store.dispatch(getStudioById(id));
   }, [id]);
 
   return (
