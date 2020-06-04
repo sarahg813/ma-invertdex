@@ -38,28 +38,19 @@
 }
 
 @mixin bp($point) {
-  @if $point == xs {
-    // smortphones in portrait mode
-    @media only screen and (max-width: 420px) {
-      @content;
-    }
-  } @else if $point == sm {
-    // smartphones in landscape
-    @media only screen and (min-width: 421px) and (max-width: 767px) {
+  @if $point == sm {
+    @media only screen and (min-width: 421px) {
       @content;
     }
   } @else if $point == md {
-    // Tablets in portrait mode, large display smartphones landscape mode
-    @media only screen and (min-width: 768px) and (max-width: 1023px) {
+    @media only screen and (min-width: 768px) {
       @content;
     }
   } @else if $point == lg {
-    // Tablets in landscape mode, older desktop monitors
-    @media only screen and (min-width: 1024px) and (max-width: 1365px) {
+    @media only screen and (min-width: 1024px) {
       @content;
     }
   } @else if $point == xl {
-    // Monitors with screen width 1366px or above
     @media only screen and (min-width: 1365px) {
       @content;
     }
